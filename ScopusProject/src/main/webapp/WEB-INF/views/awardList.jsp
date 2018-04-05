@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: sb-sandeep
-  Date: 4/4/18
-  Time: 8:15 PM
+  Date: 5/4/18
+  Time: 8:12 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,7 +14,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h3 class="text-center">List of Books</h3>
+<h3 class="text-center">List of Awards</h3>
 <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
@@ -22,22 +22,19 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>BookName</th>
-                <th>YearReleases</th>
-                <th>Author</th>
-                <th>Publisher</th>
+                <th>Award Name</th>
+                <th>Awards Discription</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="listBook" items="${listBook}">
+            <c:forEach var="listAward" items="${listAward}">
                 <tr>
-                    <td>${listBook.id}</td>
-                    <td>${listBook.bookName}</td>
-                    <td>${listBook.releaseDate}</td>
-                    <td>${listBook.author.firstName}</td>
-                    <td>${listBook.publish.publisherName}</td>
-                    <td><button class="btn btn-info">Edit</button>
+                    <td>${listAward.id}</td>
+                    <td>${listAward.awardName}</td>
+                    <td>${listAward.awardDesc}</td>
+                    <td>
+                        <button class="btn btn-info">Edit</button>
                         <button class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
@@ -45,7 +42,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-8"></div>
+    <div class="col-2"></div>
 </div>
 </body>
 </html>

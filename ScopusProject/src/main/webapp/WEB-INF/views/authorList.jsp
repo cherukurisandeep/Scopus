@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
-        <jsp:include page="header.jsp" />
+        <%--<jsp:include page="header.jsp" />--%>
         <h3 class="text-center">List of Authors</h3>
         <table class="table table-bordered">
             <thead>
@@ -28,6 +28,7 @@
                 <th>Gender</th>
                 <th>Signature</th>
                 <th>Actions</th>
+                <th>Display</th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +42,9 @@
                         <td><button class="btn btn-info">Edit</button>
                             <button class="btn btn-danger">Delete</button>
                         </td>
+                        <td>
+                            <a href="/authorProfile?id=${listAuthor.id}"><button class="btn btn-primary">View Profile</button></a>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -48,6 +52,15 @@
         </table>
     </div>
     <div class="col-2"></div>
+</div>
+<div class="row">
+<c:forEach var="listAuthor" items="${listAuthor}">
+    <li>
+        <c:forEach var="listBooks" items="${listAuthor.book}">
+            <p>${listBooks.bookName}</p>
+        </c:forEach>
+    </li>
+</c:forEach>
 </div>
 </body>
 </html>

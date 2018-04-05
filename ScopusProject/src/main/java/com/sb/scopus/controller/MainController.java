@@ -9,6 +9,7 @@ import com.sb.scopus.service.PublisherService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -81,6 +82,14 @@ public class MainController {
     public ModelAndView saveBook(@ModelAttribute Book book){
         bookService.addBook(book);
         return new ModelAndView("Home");
+    }
+
+    @RequestMapping(value = "/bookList", method = RequestMethod.GET)
+    public ModelAndView bookList(ModelAndView model){
+        List<Book> listBook = bookService.getAllBooks();
+        model.setViewName("bookList");
+        model.addObject("listBook",listBook);
+        return model;
     }
 
 }

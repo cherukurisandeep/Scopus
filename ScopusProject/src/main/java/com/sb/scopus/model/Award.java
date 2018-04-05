@@ -36,6 +36,9 @@ public class Award {
         this.awardName = awardName;
     }
 
+    public Award() {
+    }
+
     public String getAwardDesc() {
         return awardDesc;
     }
@@ -44,14 +47,14 @@ public class Award {
         this.awardDesc = awardDesc;
     }
 
-    public Set<Author> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Author> employees) {
-        this.employees = employees;
-    }
-
     @ManyToMany(mappedBy = "awards")
-    private Set<Author> employees =new HashSet<>();
+    private Set<Author> authors =new HashSet<>();
+
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
 }
