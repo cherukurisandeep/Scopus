@@ -15,6 +15,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
+<h3 class="text-center">Awards details Form </h3>
 <div class="row">
     <div class="col"></div>
     <div class="col">
