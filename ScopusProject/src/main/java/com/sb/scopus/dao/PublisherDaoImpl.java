@@ -25,6 +25,7 @@ public class PublisherDaoImpl implements PublisherDao {
     @Override
     public List<Publisher> getAllPublishers() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Publisher.class);
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return criteria.list();
     }
 

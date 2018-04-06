@@ -29,12 +29,10 @@ public class MainController {
     private BookService bookService;
      @RequestMapping(value = "/", method = RequestMethod.GET)
     public  String index(Model model){
-         System.out.println("Home");
-         model.addAttribute("publisher",new Publisher());
-        return "addPublisher";
+        return "Home";
     }
 
-    @RequestMapping(value = "/addPublisher", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/addPublisher", method = RequestMethod.POST)
     public ModelAndView addPublisher(@ModelAttribute Publisher publisher) {
         System.out.println("Home123");
         System.out.println(publisher.getPublisherName());
@@ -44,7 +42,7 @@ public class MainController {
         ModelAndView model = new ModelAndView("publisherList");
         model.addObject("listPublisher",listPublisher);
         return model;
-    }
+    }*/
 
     @RequestMapping(value="/addAuthor", method = RequestMethod.GET)
     public ModelAndView addAuthor(Model model){

@@ -41,4 +41,9 @@ public class AwardSeriveImpl implements AwardService {
     public Award updateAward(Award award) {
         return awardDao.updateAward(award);
     }
+
+    @Override
+    public List<Award> getAwardsWithOutAuthorId(Integer authorId) {
+        return awardDao.getAwardsWithOutAuthorId(authorId);
+    }
 }

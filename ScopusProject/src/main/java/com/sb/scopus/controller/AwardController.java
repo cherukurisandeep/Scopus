@@ -2,6 +2,7 @@ package com.sb.scopus.controller;
 
 import com.sb.scopus.dao.AwardDao;
 import com.sb.scopus.model.Award;
+import com.sb.scopus.service.AwardService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ import java.util.List;
 public class AwardController {
 
     @Autowired
-    AwardDao awardDao;
+    AwardService awardService;
 
     @RequestMapping(value = "/addAward", method = RequestMethod.GET)
     public ModelAndView addAwards(ModelAndView model){
@@ -30,13 +31,13 @@ public class AwardController {
     @RequestMapping(value = "/saveAward", method = RequestMethod.POST)
     public ModelAndView saveAward(@ModelAttribute Award award){
     ModelAndView model = new ModelAndView();
-    awardDao.addAward(award);
+    awardService.addAward(award);
     model.setViewName("Home");
         return  model;
     }
     @RequestMapping(value = "/awardList",method = RequestMethod.GET)
     public ModelAndView awardList(ModelAndView model){
-        List<Award> listAward = awardDao.getAllAwards();
+        List<Award> listAward = awardService.getAllAwards();
         model.addObject("listAward", listAward);
         model.setViewName("awardList");
         return model;

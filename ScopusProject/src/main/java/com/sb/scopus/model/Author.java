@@ -38,7 +38,7 @@ public class Author {
         return firstName+lastName;
     }*/
 
-    @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "author")
     private List<Book> book ;
 
     public int getId() {
@@ -93,11 +93,15 @@ public class Author {
         this.awards = awards;
     }
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
     @JoinTable(
             name = "author_awards",
             joinColumns = { @JoinColumn(name = "author_id") },
-            inverseJoinColumns = { @JoinColumn(name = "award_id") }
+            inverseJoinColumns = { @JoinColumn(name = "award_id")},
+            uniqueConstraints = @UniqueConstraint(
+            name="author_awards_author_id_award_id",
+            columnNames = {"author_id", "award_id"}
+    )
     )
     Set<Award> awards = new HashSet<>();
 

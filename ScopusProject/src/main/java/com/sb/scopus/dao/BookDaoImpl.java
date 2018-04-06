@@ -22,6 +22,7 @@ public class BookDaoImpl implements BookDao {
     @Override
     public List<Book> getAllBooks() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Book.class);
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return criteria.list();
     }
 

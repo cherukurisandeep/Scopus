@@ -15,4 +15,6 @@ public interface AwardDao {
     public Award getAward(Integer awardId);
 
     public Award updateAward(Award award);
+
+    public List<Award> getAwardsWithOutAuthorId( Integer authorId);
 }

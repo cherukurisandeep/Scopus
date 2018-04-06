@@ -14,6 +14,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <div class="row">
     <div class="col-2"></div>
     <div class="col-8">
@@ -43,7 +44,7 @@
                             <button class="btn btn-danger">Delete</button>
                         </td>
                         <td>
-                            <a href="/authorProfile?id=${listAuthor.id}"><button class="btn btn-primary">View Profile</button></a>
+                            <a href="authorProfile?id=${listAuthor.id}"><button class="btn btn-primary">View Profile</button></a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -52,15 +53,6 @@
         </table>
     </div>
     <div class="col-2"></div>
-</div>
-<div class="row">
-<c:forEach var="listAuthor" items="${listAuthor}">
-    <li>
-        <c:forEach var="listBooks" items="${listAuthor.book}">
-            <p>${listBooks.bookName}</p>
-        </c:forEach>
-    </li>
-</c:forEach>
 </div>
 </body>
 </html>

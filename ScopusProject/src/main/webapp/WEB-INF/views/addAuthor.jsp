@@ -15,6 +15,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <div class="row">
     <div class="col-3"></div>
     <div class="col-6">

@@ -3,6 +3,7 @@ package com.sb.scopus.dao;
 import com.sb.scopus.model.Author;
 import com.sb.scopus.model.Signature;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,6 +23,7 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     public List<Author> getAllAuthor() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Author.class);
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return criteria.list();
     }
 
@@ -32,11 +34,14 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     public Author getAuthor(Integer authorId) {
-        return (Author) sessionFactory.getCurrentSession().get(Author.class,authorId);
+        Author author = (Author) sessionFactory.getCurrentSession().get(Author.class,authorId);
+        Hibernate.initialize(author.getBook());
+        return author;
     }
 
     @Override
     public Author updateAuthor(Author author) {
-        return null;
+        sessionFactory.getCurrentSession().update(author);
+        return author;
     }
 }
