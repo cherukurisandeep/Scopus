@@ -7,12 +7,14 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.jws.WebParam;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -41,6 +43,13 @@ public class AwardController {
         model.addObject("listAward", listAward);
         model.setViewName("awardList");
         return model;
+    }
+
+    @RequestMapping(value = "/deleteAward", method = RequestMethod.GET)
+    public ModelAndView deleteAward(HttpServletRequest request){
+        int awardId =  Integer.parseInt(request.getParameter("id"));
+        awardService.deleteAward(awardId);
+        return new ModelAndView("redirect:/awardList");
     }
 
 }

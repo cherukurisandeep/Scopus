@@ -31,7 +31,11 @@ public class AwardDaoImpl implements AwardDao {
 
     @Override
     public void deleteAward(Integer awardId) {
-
+        Award award = (Award) sessionFactory.getCurrentSession()
+                .load(Award.class,awardId);
+        if(null != award){
+            this.sessionFactory.getCurrentSession().delete(award);
+        }
     }
 
     @Override

@@ -35,8 +35,8 @@
                     <td>${listAward.awardName}</td>
                     <td>${listAward.awardDesc}</td>
                     <td>
-                        <button class="btn btn-info">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <%--<button class="btn btn-info">Edit</button>--%>
+                        <a href="deleteAward?id=${listAward.id}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                 </tr>
             </c:forEach>

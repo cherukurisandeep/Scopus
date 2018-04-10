@@ -17,4 +17,6 @@ public interface AuthorDao {
 
     public Author updateAuthor(Author author);
 
+    public void deleteAuthorAward(Integer authorId, Integer awardId);
+
 }

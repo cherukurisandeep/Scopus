@@ -28,6 +28,11 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void deleteBook(Integer bookId) {
+        Book book =(Book) sessionFactory.getCurrentSession().load(
+                Book.class,bookId);
+        if (null != book){
+            this.sessionFactory.getCurrentSession().delete(book);
+        }
 
     }
 

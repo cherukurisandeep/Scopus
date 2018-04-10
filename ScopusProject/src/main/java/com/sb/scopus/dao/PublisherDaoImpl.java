@@ -30,8 +30,12 @@ public class PublisherDaoImpl implements PublisherDao {
     }
 
     @Override
-    public void deletePublisher(Integer publilsherId) {
-
+    public void deletePublisher(Integer publisherId) {
+        Publisher publisher = (Publisher) sessionFactory.getCurrentSession()
+                .load(Publisher.class,publisherId);
+        if(null != publisher){
+            this.sessionFactory.getCurrentSession().delete(publisher);
+        }
     }
 
     @Override

@@ -10,7 +10,7 @@ public interface PublisherDao {
 
     public List<Publisher> getAllPublishers();
 
-    public void deletePublisher(Integer publilsherId);
+    public void deletePublisher(Integer publisherId);
 
     public Publisher getPublisher(int publisherId);
 

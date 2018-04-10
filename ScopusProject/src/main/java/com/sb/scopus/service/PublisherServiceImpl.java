@@ -29,7 +29,7 @@ public class PublisherServiceImpl implements PublisherService {
 
     @Override
     public void deletePublisher(Integer publilsherId) {
-
+        publisherDao.deletePublisher(publilsherId);
     }
 
     @Override

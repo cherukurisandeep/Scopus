@@ -28,12 +28,9 @@ public class AuthorController {
 
     @RequestMapping(value = "/authorProfile", method = RequestMethod.GET)
     public ModelAndView authorProfile(HttpServletRequest servletRequest) {
-        System.out.println("^^^^^^^()^^^^()");
         int authorId = Integer.parseInt(servletRequest.getParameter("id"));
         Author author = authorService.getAuthor(authorId);
-        System.out.println(author.getBook().size()+"------!1111!------");
         List<Award> awards= awardService.getAllAwards();
-        System.out.println(awards.get(1).getAwardName()+"**********");
         ModelAndView model = new ModelAndView();
         model.addObject("author",author);
         model.addObject("awards",awards);
@@ -52,5 +49,20 @@ public class AuthorController {
         author.getAwards().add(awardObj);
         authorService.addAuthor(author);
         return new ModelAndView("redirect:/authorList");
+    }
+
+    @RequestMapping(value = "/deleteAuthor", method = RequestMethod.GET)
+    public ModelAndView deleteAuthor(HttpServletRequest request){
+        int authorId = Integer.parseInt(request.getParameter("id"));
+        authorService.deleteAuthor(authorId);
+        return new ModelAndView("redirect:/authorList");
+    }
+
+    @RequestMapping(value = "/deleteAuthorAward", method = RequestMethod.GET)
+    public ModelAndView deleteAuthorAward(HttpServletRequest request){
+        int authorId = Integer.parseInt(request.getParameter("authorId"));
+        int awardId = Integer.parseInt(request.getParameter("awardId"));
+        authorService.deleteAuthorAward(authorId,awardId);
+        return new ModelAndView("redirect:/authorProfile?id="+authorId);
     }
 }

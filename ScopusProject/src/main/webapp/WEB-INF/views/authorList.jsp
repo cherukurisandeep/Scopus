@@ -41,7 +41,7 @@
                         <td>${listAuthor.gender}</td>
                         <td>${listAuthor.sign.signStmt}</td>
                         <td><button class="btn btn-info">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <a href="deleteAuthor?id=${listAuthor.id}"><button class="btn btn-danger">Delete</button></a>
                         </td>
                         <td>
                             <a href="authorProfile?id=${listAuthor.id}"><button class="btn btn-primary">View Profile</button></a>

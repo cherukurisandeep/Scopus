@@ -29,7 +29,7 @@ public class AwardSeriveImpl implements AwardService {
 
     @Override
     public void deleteAward(Integer awardId) {
-
+        awardDao.deleteAward(awardId);
     }
 
     @Override

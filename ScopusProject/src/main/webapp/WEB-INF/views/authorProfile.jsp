@@ -103,6 +103,10 @@
                                 <c:forEach var="awards" items="${author.awards}">
                                     <div class="col-md-4">
                                         <div class="card">
+                                            <div class="row">
+                                                <a href="deleteAuthorAward?authorId=${author.id}&awardId=${awards.id}"><button class="btn btn-danger" style="margin-left: 214px;">
+                                                    x</button></a>
+                                            </div>
                                             <div class="card-body">
                                                 <h6 class="card-title">Award:${awards.awardName}</h6>
                                             </div>

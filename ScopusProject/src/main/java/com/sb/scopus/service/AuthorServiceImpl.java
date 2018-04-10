@@ -29,7 +29,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public void deleteAuthor(Integer authorId) {
-
+        authorDao.deleteAuthor(authorId);
     }
 
     @Override
@@ -40,5 +40,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author updateAuthor(Author author) {
         return authorDao.updateAuthor(author);
+    }
+
+    @Override
+    public void deleteAuthorAward(Integer authorId, Integer awardId) {
+        authorDao.deleteAuthorAward(authorId,awardId);
     }
 }

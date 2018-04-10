@@ -16,4 +16,6 @@ public interface AuthorService {
 
     public Author updateAuthor(Author author);
 
+    public void deleteAuthorAward(Integer authorId, Integer awardId);
+
 }

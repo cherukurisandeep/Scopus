@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -38,5 +39,12 @@ public class PublisherController {
         model.setViewName("publisherList");
         model.addObject("listPublisher",listPublisher);
         return model;
+    }
+
+    @RequestMapping(value = "/deletePublisher", method = RequestMethod.GET)
+    public ModelAndView deletePublisher(HttpServletRequest request){
+        int publisherId = Integer.parseInt(request.getParameter("id"));
+        publisherService.deletePublisher(publisherId);
+        return new ModelAndView("redirect:/publisherList");
     }
 }

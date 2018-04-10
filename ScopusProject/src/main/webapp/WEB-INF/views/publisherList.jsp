@@ -32,7 +32,11 @@
                 <td>${publisher.id}</td>
                 <td>${publisher.publisherName}</td>
                 <td>${publisher.noofBooksPublished}</td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td>
+                    <a href="deletePublisher?id=${publisher.id}">
+                        <button class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
             </tr>
         </c:forEach>
 

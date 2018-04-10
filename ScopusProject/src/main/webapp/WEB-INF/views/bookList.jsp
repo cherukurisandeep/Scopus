@@ -39,7 +39,7 @@
                     <td>${listBook.author.firstName}</td>
                     <td>${listBook.publish.publisherName}</td>
                     <td><button class="btn btn-info">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <a href="deleteBook?id=${listBook.id}"><button class="btn btn-danger">Delete</button></a>
                     </td>
                 </tr>
             </c:forEach>
